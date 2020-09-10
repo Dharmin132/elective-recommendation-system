@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Sem 5 CS
+{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h6>Offered Courses:</h6>
+    
+    <ul>
+        <li>CMOS Digital Design - EL321 - 3.0 (3 + 0 + 0 + 0)</li>
+        <li>CAD of VLSI - EL454 - 4.0 (3 + 0 + 0 + 2)</li>
+        <li>CMOS Analog IC Design - EL422 - 3.0 (3 + 0 + 0 + 0)</li>
+    </ul>
+
+    {% else %}
+    <p>
+    <h6>You need to Log in first!</h6>
+    </p>
+    <br>
+    <p>Login <a href='/login'>Here</a></p>
+    <br>
+    <br>
+    <p>
+    <h6>Don't have an account?</h6>
+    </p>
+    <br>
+    <p>Sign Up <a href='/register'>Here</a></p>
+    {% endif %}
+{% endblock %}

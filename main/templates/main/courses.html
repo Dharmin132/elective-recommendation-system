@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Already Taken Courses
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+    {% if user.is_authenticated %}
+        <h3>Enter your grades obtained:</h1>
+        <form method="post" action="#">
+            <ul>
+                <li>Introduction to Programming: <input type="text", name="Grade - 1"></li>
+                <li>Data Structures: <input type="text", name="Grade - 2"></li>
+                <li>Analysis of Algorithms: <input type="text", name="Grade - 3"></li>
+                <li>Database Management System: <input type="text", name="Grade - 4"></li>
+                <li>Computer Networks: <input type="text", name="Grade - 5"></li>
+            </ul>
+        </form>
+
+        <button class="btn btn-danger">
+            <a href='/final/' style="color:white">
+                Show Suggestions!
+            </a>
+        </button>
+
+    {% else %}
+        <p>
+            <h6>You need to Log in first!</h6>
+        </p>
+        <br>
+        <p>Login <a href='/login'>Here</a></p>
+        <br>
+        <br>
+        <p>
+            <h6>Don't have an account?</h6>
+        </p>
+        <br>
+        <p>Sign Up <a href='/register'>Here</a></p>
+    {% endif %}
+{% endblock %}

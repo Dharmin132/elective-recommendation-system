@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+
+        <h5><p>Choose a Course-type:</p></h5>
+
+        <button class="btn btn-success">
+            <a href='/goToSem6cs/' style="color:white">
+                Computer Science Courses
+            </a>
+        </button><br><br>
+        <button class="btn btn-success">
+            <a href='/goToSem6el/' style="color:white">
+                Electronics Courses
+            </a>
+        </button><br><br>
+        <button class="btn btn-success">
+            <a href='/goToSem6ct/' style="color:white">
+                Communication Theory Courses
+            </a>
+        </button><br><br>
+        <button class="btn btn-success">
+            <a href='/goToSem6sc/' style="color:white">
+                Math Courses
+            </a>
+        </button><br><br>
+        <button class="btn btn-success">
+            <a href='/goToSem6hm/' style="color:white">
+                Humanities Courses
+            </a>
+        </button>
+
+    {% else %}
+        <p>
+        <h6>You need to Log in first!</h6>
+        </p>
+        <br>
+        <p>Login <a href='/login'>Here</a></p>
+        <br>
+        <br>
+        <p>
+        <h6>Don't have an account?</h6>
+        </p>
+        <br>
+        <p>Sign Up <a href='/register'>Here</a></p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+
+    <h5>
+        <p>Choose a Semester:</p>
+    </h5>
+
+        <button class="btn btn-success">
+            <a href='/goToSem5/' style="color:white">
+                Semester 5
+            </a>
+        </button>
+        <br><br>
+        <button class="btn btn-success">
+            <a href='/goToSem6/' style="color:white">
+                Semester 6
+            </a>
+        </button>
+        <br><br>
+        <button class="btn btn-success">
+            <a href='/goToSem7/' style="color:white">
+                Semester 7
+            </a>
+        </button>
+        <br><br>
+        <button class="btn btn-success">
+            <a href='/goToSem8/' style="color:white">
+                Semester 8
+            </a>
+        </button>
+
+    {% else %}
+        <p>
+            <h6>You need to Log in first!</h6>
+        </p>
+        <br>
+        <p>Login <a href='/login'>Here</a></p>
+        <br>
+        <br>
+        <p>
+            <h6>Don't have an account?</h6>
+        </p>
+        <br>
+        <p>Sign Up <a href='/register'>Here</a></p>
+    {% endif %}
+{% endblock %}

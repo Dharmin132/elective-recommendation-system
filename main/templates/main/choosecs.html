@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Sem 5 CS
+{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h6>Offered Courses:</h6>
+<ul>
+    <li>Human Computer Interaction - IE402 - 4.0 (3 + 0 + 0 + 2)</li>
+    <li>Machine Learning - IE406 - 4.0 (3 + 0 + 0 + 2)</li>
+</ul>
+
+<button class="btn btn-success">
+    <a href='/chooseSem/' style="color:white">
+        Proceed to Elective Suggestions
+    </a>
+</button>
+
+{% else %}
+<p>
+<h6>You need to Log in first!</h6>
+</p>
+<br>
+<p>Login <a href='/login'>Here</a></p>
+<br>
+<br>
+<p>
+<h6>Don't have an account?</h6>
+</p>
+<br>
+<p>Sign Up <a href='/register'>Here</a></p>
+{% endif %}
+{% endblock %}

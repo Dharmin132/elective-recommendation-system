@@ -1,0 +1,92 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h5>
+    <p>Of all the courses being offered this semester,</p>
+    <p>You should choose following course(s):</p>
+</h5>
+<style>
+    #courses {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #courses td, #courses th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #courses tr:nth-child(even){background-color: #f2f2f2;}
+
+    #courses tr:hover {background-color: #ddd;}
+
+    #courses th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: rgb(0, 123, 255);
+        color: white;
+    }
+
+</style>
+<table id="courses">
+    <tr>
+        <th>Course Code</th>
+        <th>Course Name</th>
+        <th>Difficulty</th>
+        <th>Credit Structure</th>
+        <th>Probable Grades</th>
+    </tr>
+
+    <tr>
+        <td>IE406</td>
+        <td>Machine Learning</td>
+        <td>Intermediate</td>
+        <td align="center"><b>4.0</b> (3+0+0+2)</td>
+        <td align="center"><b><i>AA-AB</i></b></td>
+    </tr>
+
+    <tr>
+        <td>IE402</td>
+        <td>Human Computer Interaction</td>
+        <td>Intermediate</td>
+        <td align="center"><b>4.0</b> (3+0+0+2)</td>
+        <td align="center"><b><i>AB-BB</i></b></td>
+    </tr>
+
+</table>
+<font style="font-size: 13px; text-align: left; color: dimgrey;"><p style="text-align: right;">* IExxx indicates ICT Elective</p></font>
+
+<br>
+<br>
+
+<button class="btn btn-primary">
+    <a href='/home/' style="color:white">
+        Back to Home
+    </a>
+</button>
+<button class="btn btn-danger">
+    <a href="{% url 'logout' %}" style="color:white">logout</a>
+</button>
+
+{% else %}
+<p>
+<h6>You need to Log in first!</h6>
+</p>
+<br>
+<p>Login <a href='/login'>Here</a></p>
+<br>
+<br>
+<p>
+<h6>Don't have an account?</h6>
+</p>
+<br>
+<p>Sign Up <a href='/register'>Here</a></p>
+{% endif %}
+{% endblock %}

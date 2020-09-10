@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h2>Hi {{ user.first_name }}!</h2>
+        <br>
+
+        <button class="btn btn-success">
+            <a href='/chooseSem/' style="color:white">
+                Let's Begin!
+            </a>
+        </button>
+
+
+    {% else %}
+        <p>
+            <h5>You need to Log in first!</h5>
+        </p>
+        
+        <p>Login <a href='/login'>Here</a></p>
+        <br>
+        <br>
+        <p>
+        <h6>Don't have an account?</h6>
+        </p>
+        
+        <p>Sign Up <a href='/register'>Here</a></p>
+    {% endif %}
+{% endblock %}

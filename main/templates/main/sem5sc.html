@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Sem 5 CS
+{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h5>Oops! Can't Choose!</h5>
+    <br>
+    <h6>There are no mathematics courses offered as electives during this semester.</h6>
+
+    {% else %}
+    <p>
+    <h6>You need to Log in first!</h6>
+    </p>
+    <br>
+    <p>Login <a href='/login'>Here</a></p>
+    <br>
+    <br>
+    <p>
+    <h6>Don't have an account?</h6>
+    </p>
+    <br>
+    <p>Sign Up <a href='/register'>Here</a></p>
+    {% endif %}
+{% endblock %}

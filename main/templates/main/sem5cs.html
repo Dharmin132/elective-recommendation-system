@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Sem 5 CS
+{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <h6>Offered Courses:</h6>
+    <ul>
+        <li>Human Computer Interaction - IE402 - 4.0 (3 + 0 + 0 + 2)</li>
+        <li>Machine Learning - IE406 - 4.0 (3 + 0 + 0 + 2)</li>
+        <li>NoSQL Databases - IT 413 - 4.0 (3 + 0 + 0 + 2)</li>
+        <li>Models of Computation - IT422 - 3.0 (3 + 0 + 0 + 0)</li>
+    </ul>
+
+    <h6>Enter your interest for these courses:</h6>
+        <form method="post" action="#">
+            {% csrf_token %}
+            <ul>
+                <li>Human Computer Interaction : <input type="number"></li>
+                <li>Machine Learning: <input type="number"></li>
+                <li>NoSQL Databases: <input type="number"></li>
+                <li>Models of Computation: <input type="number"></li>
+            </ul>
+            <br>
+        </form>
+
+    <button class="btn btn-success">
+        <a href='/course/' style="color:white">
+            Proceed to Elective Suggestions
+        </a>
+    </button>
+
+    {% else %}
+    <p>
+    <h6>You need to Log in first!</h6>
+    </p>
+    <br>
+    <p>Login <a href='/login'>Here</a></p>
+    <br>
+    <br>
+    <p>
+    <h6>Don't have an account?</h6>
+    </p>
+    <br>
+    <p>Sign Up <a href='/register'>Here</a></p>
+    {% endif %}
+{% endblock %}
